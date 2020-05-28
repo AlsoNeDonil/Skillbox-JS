@@ -1,0 +1,2 @@
+debugger;
+window.start();
