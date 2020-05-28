@@ -1,6 +1,6 @@
 (function(){
-    var attemptCounter = 5;
-    var systemNumber = Math.floor(Math.random() * 10);
+    var attemptCounter = 10;
+    var systemNumber = Math.floor(Math.random() * 1000);
 
     var checkIfWin = function(num)
     {
@@ -37,7 +37,7 @@
             if(answer)
             {
                 systemNumber = Math.floor(Math.random() * 10); 
-                attemptCounter = 5;
+                attemptCounter = 10;
                 var newNum = prompt('Введите число:');
                 return checkIfWin(newNum);
             }
