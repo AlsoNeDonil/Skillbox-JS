@@ -1,60 +1,59 @@
 (function(){
+    var attemptCounter = 5;
     var systemNumber = Math.floor(Math.random() * 10);
-    var attemptCounter = 0;
-    var maxAttempts = 5;
 
-    var checkIfWin = function(userNum, ownNum)
+    var checkIfWin = function(num)
     {
-        if (!userNum)
+        if(--attemptCounter > 0)
         {
-            alert("Попытка не пытка!");
-            attemptCounter++;
+            if(isNaN(num))
+            {
+                alert('Вы должны ввести число!');
+                var newNum = prompt('Введите число:');
+                return checkIfWin(newNum);
+            }
+            if(Number(num) > systemNumber)
+            {
+                alert('Меньше');
+                var newNum = prompt('Введите число:');
+                return checkIfWin(newNum);
+            }
+
+            else if(Number(num) < systemNumber)
+            {
+                alert('Больше');
+                var newNum = prompt('Введите число:');
+                return checkIfWin(newNum);
+            }
+
+            else if(Number(num) == systemNumber)
+            {
+                return true;
+            }
+        }
+        else
+        {
+            var answer = confirm('У вас закончились попытки! Хотите сыграть еще раз?');
+            if(answer)
+            {
+                systemNumber = Math.floor(Math.random() * 10); 
+                attemptCounter = 5;
+                var newNum = prompt('Введите число:');
+                return checkIfWin(newNum);
+            }
             return false;
-        }
-    
-        else if (isNaN(userNum))
-        {
-            alert("Введите число!");
-            attemptCounter++;
-            return false;
-        }
-    
-        else if (Number(userNum) > ownNum && attemptCounter < maxAttempts)
-        {
-            alert("Меньше!");
-            attemptCounter++;
-            return false;
-        }
-    
-        else if (Number(userNum) < ownNum && attemptCounter < maxAttempts)
-        {
-            alert("Больше!");
-            attemptCounter++;
-            return false;
-        }
-    
-        else if(Number(userNum) == ownNum && attemptCounter < maxAttempts)
-        {
-            alert("Правильно!");
-            return true;
-        }
+        } 
     }
 
     window.start = function()
     {
-        debugger;
-        do
+        var num = prompt('Введите число:');
+        if(checkIfWin(num))
         {
-            var userNumber = prompt("Введите число");
-            var result = checkIfWin(userNumber, systemNumber);
-            
-            if(attemptCounter >= maxAttempts)
-            {
-                alert("Количество попыток исчерпано!Приходите в другой раз!");
-                break;
-            }
+            alert('Поздравляем! Вы угадали число!!!');
+            return;
         }
-        while(!result && userNumber !== null);
-    }
 
+        alert('Приходите еще(((');
+    }
 })()
