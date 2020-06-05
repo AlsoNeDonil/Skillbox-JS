@@ -148,3 +148,21 @@ plane.SetSpeed(955);
 var ship = new Ship();
 ship.SetIsUnderwater(true);
 ship.SetSpeed(20);
+
+console.group();
+	console.log("plane's speed: ", plane.GetSpeed());
+	console.log("plane's ticket price: ", plane.GetPriceForTicket());
+	console.log("plane's weight: ", plane.GetWeight());
+	console.log("plane is special: ", plane.GetIsSpecial());
+	console.log("plane's airline:", plane.GetAirline())
+	console.log("plane is cargo: ", plane.GetIsCargo());
+console.groupEnd();
+
+console.group();
+	console.log("ship's speed: ", ship.GetSpeed());
+	console.log("ship's ticket price: ", ship.GetPriceForTicket());
+	console.log("ship's weight: ", ship.GetWeight());
+	console.log("ship is special: ", ship.GetIsSpecial());
+	console.log("ship is passenger: ", ship.IsPassender());
+	console.log("ship is underwater: ", ship.GetIsUnderwater());
+console.groupEnd();
