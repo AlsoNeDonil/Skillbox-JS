@@ -1,7 +1,7 @@
 //getting objects of entities
-list = document.querySelector(".list");
-input = document.querySelector(".input");
-button = document.querySelector(".button");
+var list = document.querySelector(".list");
+var input = document.querySelector(".input");
+var button = document.querySelector(".button");
 
 //add event listeners
 button.addEventListener("click", function(event){
