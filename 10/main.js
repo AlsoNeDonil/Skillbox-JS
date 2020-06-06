@@ -1,8 +1,10 @@
+
 //getting objects of entities
 var editable_text = document.querySelector(".editable_text");
 var edit_button = document.querySelector(".edit");
 var save_button = document.querySelector(".save");
 var cancel_button = document.querySelector(".cancel");
+
 
 //add event listeners
 edit_button.addEventListener("click", function(event){
@@ -22,10 +24,15 @@ save_button.addEventListener("click", function(event){
 
 cancel_button.addEventListener("click", function(event){
 	editable_text.textContent = localStorage.getItem("saved_text");
-
+	
 	editable_text.setAttribute("contenteditable", "false");
 	
 	edit_button.disabled = false;
 	save_button.disabled = true;
 	cancel_button.disabled = true;
 });
+
+//check if saved text already exist
+var saved_text = "";
+if(saved_text = localStorage.getItem("saved_text"))
+	editable_text.textContent = saved_text;
