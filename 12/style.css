@@ -1,0 +1,44 @@
+html, body
+{
+    margin: 0;
+    padding: 0;
+}
+
+.content
+{
+    margin: 0 auto;
+    text-align: center;
+}
+
+.viewport
+{
+    text-align: justify;
+    width: 800px;
+    padding-bottom: 526px;
+    margin: 0 auto;
+    background-image: url("img/background.jpg");
+    background-repeat: no-repeat;
+}
+
+.ball
+{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top:300px;
+}
+
+.bound
+{
+    position: absolute;
+    top: 235px;
+    width: 125px;
+    height:230px;
+    margin: 0;
+    padding: 0;
+}
+
+#right_bound
+{
+    left:770px;
+}
